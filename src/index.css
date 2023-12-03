@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk");
+
+:root {
+  --input-border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  --clr-border: hsl(278 94% 30%);
+  --clr-white: hsl(0 0% 100%);
+  --clr-lgv: hsl(270 3% 87%);
+  --clr-dgv: hsl(278 68% 11%);
+  --clr-err: hsl(0, 100%, 66%);
+
+  --font-size: 18px;
+  --font-weight: 500;
+  --font-family: 'Space Grotesk', sans-serif;
+}
+
+/*
+=============
+Global styles
+=============
+*/
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+picture, img, svg, video, canvas {
+  width: 100%;
+  display: block;
+}
+
+body {
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  font-family: var(--font-family);
+}
+
+.background {
+  position: relative;
+}
+
+.background::before {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  content: "";
+  height: 15rem;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(./images/bg-main-mobile.png);
+}
+
+.container {
+  gap: 2rem;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  max-width: 500px;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem 3rem;
+}
+
+.cards {
+  width: 100%;
+  height: 15.4rem;
+  position: relative;
+}
+
+.back, .front {
+  width: 18rem;
+  position: absolute;
+  height: fit-content;
+  color: var(--clr-white);
+}
+
+.back {
+  right: 0;
+}
+
+.front {
+  left: 0;
+  bottom: 0;
+}
+
+.cvc, .details-container {
+  z-index: 5;
+  position: absolute;
+}
+
+.cvc {
+  top: 4.4rem;
+  right: 2rem;
+  font-size: 0.7rem;
+}
+
+.details-container {
+  inset: 1rem;
+  display: grid;
+}
+
+.details-container > img {
+  width: 3rem;
+}
+
+.details {
+  gap: 1rem;
+  display: grid;
+  align-self: end;
+  text-transform: uppercase;
+}
+
+.digits {
+  width: 100%;
+  display: grid;
+  font-weight: 600;
+  justify-self: center;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.digits span {
+  letter-spacing: 4px;
+}
+
+.info {
+  display: flex;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  justify-content: space-between;
+}
+
+.form {
+  gap: 1.5rem;
+  width: 100%;
+  display: grid;
+}
+
+label {
+  gap: 0.35rem;
+  display: grid;
+}
+
+label span {
+  font-size: 0.7rem;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: var(--clr-dgv);
+  text-transform: uppercase;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  padding: 0.65rem;
+  font-size: 0.95rem;
+  border-radius: 0.4rem;
+  border: 2px solid var(--clr-lgv);
+}
+
+input::placeholder {
+  color: var(--clr-lgv);
+}
+
+input:focus {
+  border-color: var(--clr-border);
+}
+
+input.error {
+  border-color: var(--clr-err);
+}
+
+label > p {
+  font-size: 0.75rem;
+  color: var(--clr-err);
+}
+
+.d-grid {
+  gap: 0.5rem;
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dates > div {
+  gap: 0.35rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-radius: 0.4rem;
+  color: var(--clr-white);
+  text-transform: capitalize;
+  background-color: var(--clr-dgv);
+}
+
+.complete {
+  gap: 2rem;
+  display: grid;
+  text-align: center;
+}
+
+.complete img {
+  width: 5rem;
+  margin: auto;
+}
+
+.complete h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 900px) {
+  .background {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .background::before {
+    width: 22rem;
+    height: 100vh;
+    background-size: cover;
+    background-image: url(./images/bg-main-desktop.png);
+  }
+
+  .container {
+    gap: 5rem;
+    padding: 0;
+    display: grid;
+    max-width: 900px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form, .complete {
+    width: 85%;
+    justify-self: end;
+  }
+
+  .cards {
+    height: 28rem;
+  }
+
+  .front, .back {
+    width: 23rem;
+  }
+
+  .front > img,
+  .back > img {
+    height: 12.5rem;
+  }
+
+  .front {
+    top: 0;
+    left: 0;
+  }
+
+  .back {
+    bottom: 0;
+    right: -3.5rem;
+  }
+
+  .cvc {
+    top: 5.6rem;
+    right: 3rem;
+    font-size: 1rem;
+  }
+
+  .details-container > img {
+    width: 4rem;
+  }
+
+  .details {
+    gap: 1rem;
+  }
+
+  .info {
+    font-size: 0.8rem;
+  }
+
+  .digits {
+    font-size: 1.65rem;
+  }
+}
